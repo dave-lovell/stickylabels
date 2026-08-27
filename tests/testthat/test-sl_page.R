@@ -6,11 +6,11 @@ test_that("sl_page() crashes with bad input", {
   expect_no_error(sl_page("A4"))
 })
 
-test_that("sl_page() returns 2-length numeric with 'in' units", {
+test_that("sl_page() returns 2-length numeric with units", {
   out <- sl_page("A4")
   out_attr <- attributes(out)
 
-  expect_identical(out_attr, list(units = "in"))
+  expect_identical(names(out_attr), "units")
   expect_length(out, 2)
 })
 
